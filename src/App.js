@@ -1,19 +1,20 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import withStyles from "@material-ui/core/styles/withStyles";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import Header from "./Header";
-import Footer from "./Footer";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import withStyles from '@material-ui/core/styles/withStyles';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Header from './Header';
+import Footer from './Footer';
+import ItemList from './ItemList';
 
 const styles = theme => ({
   layout: {
-    width: "auto",
+    width: 'auto',
     marginLeft: theme.spacing.unit * 2,
     marginRight: theme.spacing.unit * 2,
     [theme.breakpoints.up(600 + theme.spacing.unit * 2 * 2)]: {
       width: 600,
-      marginLeft: "auto",
-      marginRight: "auto"
+      marginLeft: 'auto',
+      marginRight: 'auto'
     }
   },
   menuButton: {
@@ -25,7 +26,7 @@ const styles = theme => ({
     marginRight: 20
   },
   listHolder: {
-    height: "400px"
+    height: '400px'
   },
   paper: {
     marginTop: theme.spacing.unit * 3,
@@ -38,8 +39,8 @@ const styles = theme => ({
     }
   },
   buttons: {
-    display: "flex",
-    justifyContent: "flex-end"
+    display: 'flex',
+    justifyContent: 'flex-end'
   },
   button: {
     marginTop: theme.spacing.unit * 3,
@@ -49,7 +50,7 @@ const styles = theme => ({
 
 class App extends Component {
   state = {
-    value: "recents"
+    value: 'recents'
   };
 
   handleChange = (event, value) => {
@@ -64,7 +65,7 @@ class App extends Component {
       <React.Fragment>
         <CssBaseline />
         <Header />
-        <div className={classes.listHolder} />
+        <ItemList />
         <Footer />
       </React.Fragment>
     );
