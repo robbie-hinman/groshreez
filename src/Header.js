@@ -75,13 +75,6 @@ class Header extends Component {
             >
               <SortByAlphaIcon />
             </IconButton>
-            <IconButton
-              className={classes.otherToolbarButton}
-              color='inherit'
-              aria-label='Sort By'
-            >
-              <AddBoxIcon />
-            </IconButton>
           </Toolbar>
         </AppBar>
       </div>

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import withStyles from '@material-ui/core/styles/withStyles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Header from './Header';
-import Footer from './Footer';
+import FooterBar from './FooterBar';
 import ItemList from './ItemList';
 
 const styles = theme => ({
@@ -66,7 +66,7 @@ class App extends Component {
         <CssBaseline />
         <Header />
         <ItemList />
-        <Footer />
+        <FooterBar />
       </React.Fragment>
     );
   }
