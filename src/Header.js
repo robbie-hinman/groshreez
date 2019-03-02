@@ -9,7 +9,6 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ViewModuleIcon from '@material-ui/icons/ViewModule';
 import SortByAlphaIcon from '@material-ui/icons/SortByAlpha';
-import AddBoxIcon from '@material-ui/icons/AddBoxOutlined';
 
 const styles = theme => ({
   root: {
@@ -39,7 +38,6 @@ class Header extends Component {
 
   render() {
     const { classes } = this.props;
-    const { value } = this.state;
 
     return (
       <div className={classes.root}>

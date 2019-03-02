@@ -58,8 +58,8 @@ class App extends Component {
   };
 
   render() {
-    const { classes } = this.props;
-    const { value } = this.state;
+    // const { classes } = this.props;
+    // const { value } = this.state;
 
     return (
       <React.Fragment>

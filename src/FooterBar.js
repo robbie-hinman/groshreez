@@ -6,10 +6,7 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Button from '@material-ui/core/Button';
 import AddIcon from '@material-ui/icons/Add';
-import SearchIcon from '@material-ui/icons/Search';
-import MoreIcon from '@material-ui/icons/MoreVert';
 import Fab from '@material-ui/core/Fab';
-import IconButton from '@material-ui/core/IconButton';
 
 const styles = theme => ({
   appBar: {
