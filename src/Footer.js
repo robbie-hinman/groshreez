@@ -2,8 +2,12 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import withStyles from "@material-ui/core/styles/withStyles";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import Header from "./Header";
-import Footer from "./Footer";
+import Icon from "@material-ui/core/Icon";
+import BottomNavigation from "@material-ui/core/BottomNavigation";
+import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
+import RestoreIcon from "@material-ui/icons/Restore";
+import FavoriteIcon from "@material-ui/icons/Favorite";
+import LocationOnIcon from "@material-ui/icons/LocationOn";
 
 const styles = theme => ({
   layout: {
@@ -15,10 +19,6 @@ const styles = theme => ({
       marginLeft: "auto",
       marginRight: "auto"
     }
-  },
-  menuButton: {
-    marginLeft: -12,
-    marginRight: 20
   },
   otherToolbarButton: {
     marginLeft: 20,
@@ -47,7 +47,7 @@ const styles = theme => ({
   }
 });
 
-class App extends Component {
+class Footer extends Component {
   state = {
     value: "recents"
   };
@@ -63,16 +63,39 @@ class App extends Component {
     return (
       <React.Fragment>
         <CssBaseline />
-        <Header />
-        <div className={classes.listHolder} />
-        <Footer />
+        <BottomNavigation
+          value={value}
+          onChange={this.handleChange}
+          className={classes.root}
+        >
+          <BottomNavigationAction
+            label="Recents"
+            value="recents"
+            icon={<RestoreIcon />}
+          />
+          <BottomNavigationAction
+            label="Favorites"
+            value="favorites"
+            icon={<FavoriteIcon />}
+          />
+          <BottomNavigationAction
+            label="Nearby"
+            value="nearby"
+            icon={<LocationOnIcon />}
+          />
+          <BottomNavigationAction
+            label="Folder"
+            value="folder"
+            icon={<Icon>folder</Icon>}
+          />
+        </BottomNavigation>
       </React.Fragment>
     );
   }
 }
 
-App.propTypes = {
+Footer.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(App);
+export default withStyles(styles)(Footer);
