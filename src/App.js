@@ -4,49 +4,9 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Header from './Header';
 import FooterBar from './FooterBar';
-import ItemList from './ItemList';
+import ItemListContainer from './ItemListContainer';
 
-const styles = theme => ({
-  layout: {
-    width: 'auto',
-    marginLeft: theme.spacing.unit * 2,
-    marginRight: theme.spacing.unit * 2,
-    [theme.breakpoints.up(600 + theme.spacing.unit * 2 * 2)]: {
-      width: 600,
-      marginLeft: 'auto',
-      marginRight: 'auto'
-    }
-  },
-  menuButton: {
-    marginLeft: -12,
-    marginRight: 20
-  },
-  otherToolbarButton: {
-    marginLeft: 20,
-    marginRight: 20
-  },
-  listHolder: {
-    height: '400px'
-  },
-  paper: {
-    marginTop: theme.spacing.unit * 3,
-    marginBottom: theme.spacing.unit * 3,
-    padding: theme.spacing.unit * 2,
-    [theme.breakpoints.up(600 + theme.spacing.unit * 3 * 2)]: {
-      marginTop: theme.spacing.unit * 6,
-      marginBottom: theme.spacing.unit * 6,
-      padding: theme.spacing.unit * 3
-    }
-  },
-  buttons: {
-    display: 'flex',
-    justifyContent: 'flex-end'
-  },
-  button: {
-    marginTop: theme.spacing.unit * 3,
-    marginLeft: theme.spacing.unit
-  }
-});
+const styles = theme => ({});
 
 class App extends Component {
   state = {
@@ -65,7 +25,7 @@ class App extends Component {
       <React.Fragment>
         <CssBaseline />
         <Header />
-        <ItemList />
+        <ItemListContainer />
         <FooterBar />
       </React.Fragment>
     );

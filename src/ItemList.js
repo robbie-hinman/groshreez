@@ -1,50 +1,65 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { withStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
-import Grid from "@material-ui/core/Grid";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
+import ListItemText from '@material-ui/core/ListItemText';
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
+import Checkbox from '@material-ui/core/Checkbox';
+import Avatar from '@material-ui/core/Avatar';
 
 const styles = theme => ({
   root: {
-    flexGrow: 1
-  },
-  paper: {
-    padding: theme.spacing.unit * 2,
-    textAlign: "center",
-    color: theme.palette.text.secondary
+    width: '100%',
+    maxWidth: 360,
+    backgroundColor: theme.palette.background.paper
   }
 });
 
-function ItemList(props) {
-  const { classes } = props;
+class ItemList extends React.Component {
+  state = {
+    checked: [1]
+  };
 
-  return (
-    <div className={classes.root}>
-      <Grid container spacing={24}>
-        <Grid item xs={12}>
-          <Paper className={classes.paper}>xs=12</Paper>
-        </Grid>
-        <Grid item xs={6}>
-          <Paper className={classes.paper}>xs=6</Paper>
-        </Grid>
-        <Grid item xs={6}>
-          <Paper className={classes.paper}>xs=6</Paper>
-        </Grid>
-        <Grid item xs={3}>
-          <Paper className={classes.paper}>xs=3</Paper>
-        </Grid>
-        <Grid item xs={3}>
-          <Paper className={classes.paper}>xs=3</Paper>
-        </Grid>
-        <Grid item xs={3}>
-          <Paper className={classes.paper}>xs=3</Paper>
-        </Grid>
-        <Grid item xs={3}>
-          <Paper className={classes.paper}>xs=3</Paper>
-        </Grid>
-      </Grid>
-    </div>
-  );
+  handleToggle = value => () => {
+    const { checked } = this.state;
+    const currentIndex = checked.indexOf(value);
+    const newChecked = [...checked];
+
+    if (currentIndex === -1) {
+      newChecked.push(value);
+    } else {
+      newChecked.splice(currentIndex, 1);
+    }
+
+    this.setState({
+      checked: newChecked
+    });
+  };
+
+  render() {
+    const { classes } = this.props;
+
+    return (
+      <List className={classes.root}>
+        {[0, 1, 2, 3].map(value => (
+          <ListItem key={value} button>
+            <ListItemAvatar>
+              <Avatar alt={`Avatar n°${value + 1}`} />
+            </ListItemAvatar>
+            <ListItemText primary={`Line item ${value + 1}`} />
+            <ListItemSecondaryAction>
+              <Checkbox
+                onChange={this.handleToggle(value)}
+                checked={this.state.checked.indexOf(value) !== -1}
+              />
+            </ListItemSecondaryAction>
+          </ListItem>
+        ))}
+      </List>
+    );
+  }
 }
 
 ItemList.propTypes = {
