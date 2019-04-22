@@ -2,12 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
-import ListItemText from '@material-ui/core/ListItemText';
-import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-import Checkbox from '@material-ui/core/Checkbox';
-import Avatar from '@material-ui/core/Avatar';
+import GroceryItem from './GroceryItem';
 
 const styles = theme => ({
   root: {
@@ -17,6 +12,10 @@ const styles = theme => ({
 });
 
 class ItemList extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleToggle = this.handleToggle.bind(this);
+  }
   state = {
     checked: [1]
   };
@@ -44,18 +43,12 @@ class ItemList extends React.Component {
     return (
       <List className={classes.root}>
         {numbersArray.map(value => (
-          <ListItem key={value} button>
-            <ListItemAvatar>
-              <Avatar alt={`Avatar n°${value + 1}`} />
-            </ListItemAvatar>
-            <ListItemText primary={`Line item ${value + 1}`} />
-            <ListItemSecondaryAction>
-              <Checkbox
-                onChange={this.handleToggle(value)}
-                checked={this.state.checked.indexOf(value) !== -1}
-              />
-            </ListItemSecondaryAction>
-          </ListItem>
+          <GroceryItem
+            key={value}
+            value={value}
+            handleToggle={this.handleToggle}
+            checked={this.state.checked.indexOf(value) !== -1}
+          />
         ))}
       </List>
     );
