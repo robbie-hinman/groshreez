@@ -42,7 +42,7 @@ class Header extends Component {
     return (
       <div className={classes.root}>
         <CssBaseline />
-        <AppBar position='absolute' color='default' className={classes.appBar}>
+        <AppBar color='default' position='fixed'>
           <Toolbar>
             <IconButton
               className={classes.menuButton}

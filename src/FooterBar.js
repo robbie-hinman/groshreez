@@ -47,7 +47,7 @@ class Footer extends Component {
             <div>
               <Button color='inherit'>All</Button>
               <Button color='inherit'>In Cart</Button>
-              <Button color='inherit'>Get</Button>
+              <Button color='inherit'>To Get</Button>
             </div>
             <Fab
               color='secondary'

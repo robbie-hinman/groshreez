@@ -12,7 +12,6 @@ import Avatar from '@material-ui/core/Avatar';
 const styles = theme => ({
   root: {
     width: '100%',
-    maxWidth: 360,
     backgroundColor: theme.palette.background.paper
   }
 });
@@ -40,10 +39,11 @@ class ItemList extends React.Component {
 
   render() {
     const { classes } = this.props;
+    const numbersArray = [...Array(50).keys()];
 
     return (
       <List className={classes.root}>
-        {[0, 1, 2, 3].map(value => (
+        {numbersArray.map(value => (
           <ListItem key={value} button>
             <ListItemAvatar>
               <Avatar alt={`Avatar n°${value + 1}`} />
