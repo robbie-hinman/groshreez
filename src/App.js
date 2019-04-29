@@ -5,6 +5,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Header from './Header';
 import FooterBar from './FooterBar';
 import ItemListContainer from './ItemListContainer';
+import AddItemsModalNonConnected from './AddItemsModal';
 
 const styles = theme => ({});
 
@@ -27,6 +28,7 @@ class App extends Component {
         <Header />
         <ItemListContainer />
         <FooterBar />
+        <AddItemsModalNonConnected />
       </React.Fragment>
     );
   }
