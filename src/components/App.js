@@ -45,7 +45,7 @@ App.propTypes = {
   toggleAddModal: PropTypes.func.isRequired
 };
 
-const StyledApp = withStyles(styles)(App);
+export const StyledApp = withStyles(styles)(App);
 
 const mapStateToProps = state => ({
   addModalIsOpen: state.addGroceriesModalOpen
