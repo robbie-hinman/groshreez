@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -7,6 +8,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Button from '@material-ui/core/Button';
 import AddIcon from '@material-ui/icons/Add';
 import Fab from '@material-ui/core/Fab';
+import { toggleAddModal } from '../actions/groceryList';
 
 const styles = theme => ({
   appBar: {
@@ -53,6 +55,7 @@ class Footer extends Component {
               color='secondary'
               aria-label='Add'
               className={classes.fabButton}
+              onClick={this.props.toggleAddModal}
             >
               <AddIcon />
             </Fab>
@@ -65,7 +68,17 @@ class Footer extends Component {
 }
 
 Footer.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
+  toggleAddModal: PropTypes.func.isRequired
+};
+const mapDispatchToProps = dispatch => {
+  return {
+    toggleAddModal: () => dispatch(toggleAddModal())
+  };
 };
 
-export default withStyles(styles)(Footer);
+const StyledFooter = withStyles(styles)(Footer);
+export default connect(
+  null,
+  mapDispatchToProps
+)(StyledFooter);

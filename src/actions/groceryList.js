@@ -1,3 +1,5 @@
 import * as actionTypes from './actionTypes';
 
-export const toggleAddModal = () => ({ type: actionTypes.TOGGLE_ADD_MODAL });
+export const toggleAddModal = () => {
+  return { type: actionTypes.TOGGLE_ADD_MODAL };
+};
