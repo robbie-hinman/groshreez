@@ -8,6 +8,7 @@ import AppBar from '@material-ui/core/AppBar';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ViewModuleIcon from '@material-ui/icons/ViewModule';
+
 import SortByAlphaIcon from '@material-ui/icons/SortByAlpha';
 
 const styles = theme => ({
@@ -42,18 +43,18 @@ class Header extends Component {
     return (
       <div className={classes.root}>
         <CssBaseline />
-        <AppBar color='default' position='fixed'>
+        <AppBar color="default" position="fixed">
           <Toolbar>
             <IconButton
               className={classes.menuButton}
-              color='inherit'
-              aria-label='Menu'
+              color="inherit"
+              aria-label="Menu"
             >
               <MenuIcon />
             </IconButton>
             <Typography
-              variant='h6'
-              color='inherit'
+              variant="h6"
+              color="inherit"
               noWrap
               className={classes.grow}
             >
@@ -61,15 +62,15 @@ class Header extends Component {
             </Typography>
             <IconButton
               className={classes.otherToolbarButton}
-              color='inherit'
-              aria-label='My Lists'
+              color="inherit"
+              aria-label="My Lists"
             >
               <ViewModuleIcon />
             </IconButton>
             <IconButton
               className={classes.otherToolbarButton}
-              color='inherit'
-              aria-label='Sort By'
+              color="inherit"
+              aria-label="Sort By"
             >
               <SortByAlphaIcon />
             </IconButton>
@@ -80,8 +81,6 @@ class Header extends Component {
   }
 }
 
-Header.propTypes = {
-  classes: PropTypes.object.isRequired
-};
+Header.propTypes = { classes: PropTypes.object.isRequired };
 
 export default withStyles(styles)(Header);
