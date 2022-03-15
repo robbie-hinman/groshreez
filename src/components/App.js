@@ -1,19 +1,18 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import withStyles from '@material-ui/core/styles/withStyles';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Header from './Header';
-import FooterBar from './FooterBar';
-import ItemListContainer from './ItemListContainer';
-import AddDialog from './AddDialog';
-import { toggleAddModal as toggleAddAction } from '../actions/groceryList';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import withStyles from "@material-ui/core/styles/withStyles";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import { Route, Switch } from "react-router-dom";
+import Header from "./Header";
+import ShoppingView from "./views/ShoppingView";
+import BulkAddView from "./views/BulkAddView";
+import ListsView from "./views/ListsView";
 
-const styles = theme => ({});
+const styles = (theme) => ({});
 
 class App extends Component {
   state = {
-    value: 'recents'
+    value: "recents"
   };
 
   handleChange = (event, value) => {
@@ -28,36 +27,25 @@ class App extends Component {
       <React.Fragment>
         <CssBaseline />
         <Header />
-        <ItemListContainer />
-        <FooterBar />
-        <AddDialog
-          isOpen={this.props.addModalIsOpen}
-          toggleModal={this.props.toggleAddModal}
-        />
+
+        <Switch>
+          <Route path="/shop">
+            <ShoppingView />
+          </Route>
+          <Route path="/lists">
+            <ListsView />
+          </Route>
+          <Route path="/">
+            <BulkAddView />
+          </Route>
+        </Switch>
       </React.Fragment>
     );
   }
 }
 
 App.propTypes = {
-  classes: PropTypes.object.isRequired,
-  addModalIsOpen: PropTypes.bool.isRequired,
-  toggleAddModal: PropTypes.func.isRequired
+  classes: PropTypes.object.isRequired
 };
 
-export const StyledApp = withStyles(styles)(App);
-
-const mapStateToProps = state => ({
-  addModalIsOpen: state.addGroceriesModalOpen
-});
-
-const mapDispatchToProps = dispatch => {
-  return {
-    toggleAddModal: () => dispatch(toggleAddAction())
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(StyledApp);
+export default withStyles(styles)(App);
